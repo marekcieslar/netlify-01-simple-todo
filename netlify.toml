@@ -1,0 +1,24 @@
+[build]
+  publish="dist"
+  functions="functions_dev"
+
+[[redirects]]
+  from = "/api/todo/:id"
+  to = "/.netlify/functions/todo?id=:id"
+  status = 200
+  force = true
+  # query = {id = ":id"}
+  # query = { test = "111" }
+  # conditions = { status = 'GET' }
+
+# [[redirects]]
+#   from = "/api/:fn"
+#   to = "/.netlify/functions/:fn"
+#   status = 200
+#   force = true
+
+[[redirects]]
+  from = "/api/:splat"
+  to = "/.netlify/functions/:splat"
+  status = 200
+  force = true
