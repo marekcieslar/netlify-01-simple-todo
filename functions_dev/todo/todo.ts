@@ -5,6 +5,7 @@ import postTodo from './postTodo';
 import putTodo from './putTodo';
 import error from './error';
 import deleteTodo from './deleteTodo';
+import options from './options';
 
 const handler: Handler = async (event, context) => {
   const id = event.path.split('/')[3];
@@ -50,6 +51,9 @@ const handler: Handler = async (event, context) => {
         return await deleteTodo(id);
       }
       break;
+
+    case 'OPTIONS':
+      return options();
 
     default:
       return error({ statusCode: 404, message: 'No endpoint!' });
